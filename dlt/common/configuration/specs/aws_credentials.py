@@ -50,7 +50,7 @@ class AwsCredentials(AwsCredentialsWithoutDefaults, CredentialsWithDefault):
         """Sets the credentials properties from boto3 `session` and return session's credentials if found"""
         import boto3
         assert isinstance(session, boto3.Session)
-        self.profile_name = session.profile_name
+        # self.profile_name = session.profile_name # Let the user decide which profile to use
         self.region_name = session.region_name
         default = session.get_credentials()
         if not default:
